@@ -1,0 +1,11 @@
+.overlay-button{
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: #fff;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}

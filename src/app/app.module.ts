@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { PlatComponent } from './plat/plat.component';
+import { LoginComponent } from './login/login.component';
+import { AddComponent } from './add/add.component';
 
-@NgModule({
+
+@NgModule({  
   declarations: [
-    AppComponent
+    AppComponent,
+    PlatComponent,
+    LoginComponent,
+    AddComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule , FormsModule,ReactiveFormsModule,HttpClientModule,MatToolbarModule,
+    AppRoutingModule, RouterModule, 
+    AppRoutingModule,
+    
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
