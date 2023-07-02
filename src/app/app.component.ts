@@ -6,23 +6,21 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  authService: any;
+export class AppComponent {
+  // authService: any;
 
-  constructor(private router: Router) { }
+  // constructor(private router: Router) { }
 
-    ngOnInit(): void {
-      throw new Error('Method not implemented.');
-    }
 
-     onLogin() {
-       this.router.navigateByUrl('/login');
-     }
-  
-     onLogout() {
-       this.authService.logout();
-       this.router.navigateByUrl('/login');
-     }
+
+  // onLogin() {
+  //   this.router.navigateByUrl('/login');
+  // }
+
+  // onLogout() {
+  //   this.authService.logout();
+  //   this.router.navigateByUrl('/login');
+  // }
 
   //  addPlat(): void {
   //    console.log("add");
@@ -35,5 +33,5 @@ export class AppComponent implements OnInit{
   //        }
   //      });
   //  };
-  
+
 }

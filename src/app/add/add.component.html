@@ -1,27 +1,29 @@
 <div class="container">
-    <h3>Add Plat</h3>
-    <form  #platForm="ngForm" (ngSubmit)="onAdd(platForm)">
-      <div class="mb-3">
-        <label for="title" class="form-label">Id</label>
-        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="plat.id" required>
-      </div>
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="plat.titre" required>
-      </div>
-      <div class="mb-3">
-        <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" [(ngModel)]="plat.description" required>
-      </div>
-      <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" name="description" [(ngModel)]="plat.prix" required></textarea>
-      </div>
-      <div class="mb-3">
-        <label for="photo" class="form-label">Photo</label>
-        <input type="file" class="form-control" id="photo" name="photo" (change)="onFileChange($event)" accept="image/*" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Plat</button>
-    </form>
-  </div>
-  
+  <h3>Add Plat</h3>
+  <form (ngSubmit)="onAdd()">
+    <!-- <div class="mb-3">
+      <label for="title" class="form-label">Id</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="plat.id" required>
+    </div> -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="plat.titre" required>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" name="price" [(ngModel)]="plat.prix" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="plat.description"
+        required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="photo" class="form-label">Photo</label>
+      <input type="file" class="form-control" id="photo" name="photo" (change)="Addimage($event)" accept="image/*"
+        required>
+      <img [src]="plat.photo">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Plat</button>
+  </form>
+</div>

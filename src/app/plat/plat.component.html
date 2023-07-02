@@ -1,13 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">Restaurent</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+    <a class="navbar-brand" routerlink="/plat">Restaurent</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <button class="nav-link active" aria-current="page" routerlink="/plat">Home</button>
         </li>
       </ul>
       <div>
@@ -18,56 +19,66 @@
     </div>
   </div>
 </nav>
-  
-    <div>
 
-    <div class="row">
-      <img class="img-fluid img-fluid w-100 " src="../assets/images/Landing.PNG" alt="image" >
-    </div>
-  
-    <div class="row">
-      <img src="img-fluid img-fluid w-100" src="../../assets/images/Landing1.PNG" alt="image2">
-    </div>
-    
-    <div class="container mt-5">
-      <h3>Nos Fajitas</h3>
-      <button *ngIf="this.authService.hasRole('Admin')" (click)="redirectToAddComponent()">Add plat </button>
-      <div class="card-group row">
-        <div class="card col-sm-4">
-          <img src="../assets/images/ss.png" class="card-img-top" alt="...">
-          <div class="card-body">
-          <h5 class="card-title"><b>Trio Fajitas </b></h5>
-          <p class="card-text" ><b>49,90 DT</b></p>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1" type="button">Edit plat </button>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1" type="button">Delete plat </button>        </div>
-        </div>
-        <div class="card col-sm-4">
-          <img src="../assets/images/sss.png" class="card-img-top" alt="...">
-          <div class="card-body">
-          <h5 class="card-title"><b>Trio Fajitas </b></h5>
-          <p class="card-text" ><b>49,90 DT</b></p>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1" type="button">Edit plat </button>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1" type="button" (click)="deletePlat()">Delete plat </button>
-          </div>
-        </div>
-        <div class="card col-sm-4">
-          <img src="../assets/images/ssss.png" class="card-img-top" alt="...">
-          <div class="card-body">
-          <h5 class="card-title"><b>Trio Fajitas </b></h5>
-          <p class="card-text" ><b>49,90 DT</b></p>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1" type="button">Edit plat </button>
-          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1" type="button">Delete plat </button>        
-        </div>
-        </div>
+<div>
+
+  <div class="row">
+    <img class="img-fluid img-fluid w-100 " src="../assets/images/Landing.PNG" alt="image">
+  </div>
+
+  <div class="row">
+    <img src="img-fluid img-fluid w-100" src="../../assets/images/Landing1.PNG" alt="image2">
+  </div>
+
+  <div class="container mt-5">
+    <h3>Nos Fajitas</h3>
+    <button *ngIf="this.authService.hasRole('Admin')" (click)="redirectToAddComponent()">Add plat </button>
+    <div class="card-group row">
+      <div class="card col-sm-4" *ngFor="let plat of lstplat">
+        <img [src]="plat.photo" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><b>{{plat.titre}} </b></h5>
+          <p class="card-text"><b>{{plat.prix}}</b></p>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1" type="button"
+            routerLink="/updateplat/{{plat.id}}">Edit plat </button>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1"
+            (click)="deletePlat(plat.id!)" type="button">Delete
+            plat </button>
         </div>
       </div>
-    
-      <div class="container-fluid mt-5" style="background-color: rgb(255, 255, 255);">
-      <div class="container d-lg-flex justify-content-between align-items-center ps-lg-4" *ngIf="this.authService.hasRole('User1')">
-        <img class="img-fluid" src="../assets/images/mm.png"><br> </div>
+      <!-- <div class="card col-sm-4">
+        <img src="../assets/images/sss.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><b>Trio Fajitas </b></h5>
+          <p class="card-text"><b>49,90 DT</b></p>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1"
+            type="button">Edit plat </button>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1" type="button"
+            (click)="deletePlat()">Delete plat </button>
+        </div>
       </div>
-      <div>
-  
-<br> <br> <br> <br> 
-      
-</div>
+      <div class="card col-sm-4">
+        <img src="../assets/images/ssss.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><b>Trio Fajitas </b></h5>
+          <p class="card-text"><b>49,90 DT</b></p>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-info bi bi-heart-arrow ms-1"
+            type="button">Edit plat </button>
+          <button *ngIf="this.authService.hasRole('Admin')" class="btn btn-danger bi bi-trash ms-1" type="button">Delete
+            plat </button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="container-fluid mt-5" style="background-color: rgb(255, 255, 255);">
+    <div class="container d-lg-flex justify-content-between align-items-center ps-lg-4"
+      *ngIf="this.authService.hasRole('User1')">
+      <img class="img-fluid" src="../assets/images/mm.png"><br>
+    </div>
+  </div>
+  <div>
+
+    <br> <br> <br> <br>
+
+  </div>

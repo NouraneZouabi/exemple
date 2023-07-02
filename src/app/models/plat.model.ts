@@ -1,8 +1,10 @@
-export interface plat{
-    platImages: any;
-    id: number,
-    titre :string;
-    description: string;
-    prix : string;
-    photo : string;
+export class plat {
+    constructor(
+        public platImages?: any,
+        public id?: number,
+        public titre?: string,
+        public description?: string,
+        public prix?: string,
+        public photo?: string
+    ) { }
 }
